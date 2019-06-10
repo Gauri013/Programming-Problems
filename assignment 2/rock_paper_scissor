@@ -7,7 +7,7 @@ def rock_paper_scissor(scores):
     if (sp == 0 and rp == 0) :
         return ("tie")
     else:
-        result = sp - rp
+        result = int(sp) - int(rp)
     return (result)
 
 final_score = rock_paper_scissor(list(input()))
