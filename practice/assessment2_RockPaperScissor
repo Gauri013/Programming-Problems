@@ -1,0 +1,18 @@
+def final_score( listOfOutcomes):
+    no_of_wins = 0
+    no_of_losses = 0
+    no_of_ties = 0
+    possible_match_result = {"sp": 1, "pr": 1, "rs": 1,  "sr": -1,  "ps": -1, "rp" : -1 , "rr" : 0 , "pp" : 0, "ss" :0}
+    for i in range (0, len(listOfOutcomes)):
+        if( possible_match_result[listOfOutcomes[i]] == 1):
+            no_of_wins += 1
+        elif ( possible_match_result[listOfOutcomes[i]] == 0):
+            no_of_ties += 1
+        else:
+            no_of_losses -= 1
+    score = [ no_of_wins ,no_of_ties,no_of_losses]
+    return score
+
+outcomes = input()
+score_list = final_score(outcomes.split(","))
+print ( "+",score_list[0] , score_list[2], "=",score_list[1])
