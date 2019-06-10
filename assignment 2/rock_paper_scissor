@@ -1,0 +1,14 @@
+def rock_paper_scissor(scores):
+    rp = scores[0]
+    rr = scores[1] 
+    sp = scores[2]
+    sr = scores[3]
+    print (rp , sp)
+    if (sp == 0 and rp == 0) :
+        return ("tie")
+    else:
+        result = sp - rp
+    return (result)
+
+final_score = rock_paper_scissor(list(input()))
+print (final_score)
