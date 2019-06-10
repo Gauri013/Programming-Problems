@@ -1,0 +1,12 @@
+def ambiguity_check(day):
+    month =int( day[0])
+    day = int(day[1])
+    day_format = ""
+    if ((day >= 1 and day <= 12) and (month >= 1  and month <= 12) and month != day):
+        return ("ambiguious")
+    else:
+        return ("unambiguious")
+
+day = input()
+list_day = day.split("/")
+print(ambiguity_check(list_day))
