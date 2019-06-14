@@ -8,7 +8,7 @@ def termins(lattice_point : tuple , lst : list) -> tuple:
     x = dict_compass[lst[0[1:]]]
     X = lattice_point[0] + ( lst[0[:1]]*math.sin(x))
     x = dict_compass[lst[1[1:]]]
-    Y = lattice_point[0] + (lst[1[:1]]*math.cos(x))
+    Y = lattice_point[1] + (lst[1[:1]]*math.cos(x))
     tup = (X, Y)
     return tup
 tup = tuple(input())
