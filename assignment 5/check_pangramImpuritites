@@ -1,0 +1,48 @@
+def isPangram(sentence):
+    return_value = ""
+    sentence.lower()
+    alpha = "abcdefghijklmnopqrstuvwxyz"
+    input_alpha_list.remove(',')
+    alpha_list = list(alpha)
+    sentence.strip()
+    input_alpha_list = list(sentence)
+    if (len(alpha_list) == len(input_alpha_list)):
+        return_value = check_pangram(sort(input_alpha_list),sort(alpha_list))
+    else:
+        return_value = " not Pangram"
+    return return_value
+
+def check_pangram(input_alpha_list,alpha_list):
+    value = 0
+    for i in range (0,len(input_alpha_list)):
+        if (input_alpha_list[i] != alpha_list[i]):
+            value = cal_impurity_index(input_alpha_list ,alpha_list)
+    if(value == 0):
+        return "Pangram"
+    else :
+        return value
+    
+    
+def cal_impurity_index(input_alpha_list ,alpha_list):
+    vowel = ['a' , 'e' , 'i' , 'o' ,'u']
+    alpha_list.remove('a')
+    alpha_list.remove('e')
+    alpha_list.remove('i')
+    alpha_list.remove('o')
+    alpha_list.remove('u')
+    impurity_index = 0.0
+    for i in input_alpha_list:
+        if (input_alpha_list.count(i) == 1):
+            impurity_index += 0.0
+        elif (i  in vowel and input_alpha_list.count(i) == 2):
+            impurity_index += 0.5*input_alpha_list.count(i)
+        elif (i  in alpha_list and input_alpha_list.count(i) == 2):
+            impurity_index += 0.7
+        elif (input_alpha_list.count(i) > 2):
+            impurity_index += 1
+        else :
+            return "not pangram"
+    return impurity_index
+
+sentence = input()
+result = isPangram(sentence)
