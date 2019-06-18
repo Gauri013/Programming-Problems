@@ -1,0 +1,18 @@
+def isPangram(sentence):
+    sentence.lower()
+    alpha = "abcdefghijklmnopqrstuvwxyz"
+    return_value = ""
+    alpha_list = list(alpha)
+    sentence.strip()
+    input_alpha_list = list(sentence)
+    input_alpha_list.remove('.')
+    for i in sorted(alpha_list):
+        if i in input_alpha_list:
+            return_value = "pangram"
+        else:
+            return "not pangram"
+    return  return_value 
+
+sentence = input()
+result = isPangram(sentence)
+print (result)
