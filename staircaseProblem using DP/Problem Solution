@@ -1,0 +1,16 @@
+def totalNoOfWays(maxStep , nthStair) :
+	arrayOfSteps = [i for i in range(1,maxStep+1)]
+	arrayOfWays = [0 for _ in range(nthStair + 1)]
+	arrayOfWays[0] = 1
+
+	for i in range(maxStep) :
+		for j in range(arrayOfSteps[i] , nthStair + 1):
+			arrayOfWays[j] += arrayOfWays[j - arrayOfSteps[i]]
+
+	return arrayOfWays[nthStair]
+	
+
+nth_stair = int(input())
+m_steps = int(input())
+ways = totalNoOfWays(m_steps , nth_stair)
+print('Total ways to reach the' , nth_stair, 'stair with at most', m_steps,'steps are',ways )
